@@ -12,9 +12,9 @@ if __name__ == '__main__':
     """Scripts to be executed"""
     id = sys.argv[1]
     response = requests.get(
-        'https://jsonplaceholder.typicode.com/users/{}'.format(id))
+        'https://jsonplaceholder.typicode.com/users/{}'.format(id), verify=False)
     data = json.loads(response.text)
-    todos = requests.get('https://jsonplaceholder.typicode.com/todos/')
+    todos = requests.get('https://jsonplaceholder.typicode.com/todos/', verify=False)
     result = json.loads(todos.text)
     done = 0
     total = 0
