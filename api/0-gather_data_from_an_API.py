@@ -8,11 +8,11 @@ import sys
 """Imported modules to be used by the program"""
 
 __author__ = "Junior"
-
 if __name__ == '__main__':
     """Scripts to be executed"""
     id = sys.argv[1]
-    response = requests.get(f'https://jsonplaceholder.typicode.com/users/{id}')
+    response = requests.get(
+        'https://jsonplaceholder.typicode.com/users/{}'.format(id))
     data = json.loads(response.text)
     todos = requests.get('https://jsonplaceholder.typicode.com/todos/')
     result = json.loads(todos.text)
@@ -27,6 +27,6 @@ if __name__ == '__main__':
                 done += 1
                 itemArr.append(item['title'])
 
-    print(f"Employee {data['name']} is done with ({done}/{total})")
+    print("Employee {} is done with ({}/{})".format(data['name'], done, total))
     for item in itemArr:
-        print(f"\t {item}")
+        print("\t {}".format(item))
