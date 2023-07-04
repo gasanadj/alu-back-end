@@ -14,7 +14,8 @@ if __name__ == '__main__':
     response = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}'.format(id), verify=False)
     data = json.loads(response.text)
-    todos = requests.get('https://jsonplaceholder.typicode.com/todos/', verify=False)
+    todos = requests.get(
+        'https://jsonplaceholder.typicode.com/todos/', verify=False)
     result = json.loads(todos.text)
     done = 0
     total = 0
